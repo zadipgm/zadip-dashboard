@@ -1,9 +1,11 @@
 import * as React from "react";
+import { useTheme } from "styled-components";
 import { Container, Title } from "./styled.components";
 const Home = () => {
+  const { translations } = useTheme();
   return (
     <Container>
-      <Title>Welcome to Zadip Dashboard</Title>
+      <Title>{translations?.welcometoZadip}</Title>
     </Container>
   );
 };

@@ -11,7 +11,13 @@ const arabic = {
   firstName: "...الاسم الأول",
   lastName: "...اسم العائلة",
   repeatPassword: "اعد كلمة السر",
-  register: "يسجل"
+  register: "يسجل",
+  dashboard: "لوحة القيادة",
+  formsData: "بيانات النماذج",
+  logout: "تسجيل خروج",
+  welcometoZadip: "اهلا بك في مجموعة زاد المعلومات",
+  copyRights: "© 2008 - 2023 مجموعة زاد المعلومات, كل الحقوق محفوظة.",
+  serviceDetails: "تفاصيل الخدمات المطلوبة"
 
 
 

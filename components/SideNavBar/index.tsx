@@ -5,7 +5,7 @@ import * as React from "react";
 import { useTheme } from "styled-components";
 import { Container, List, ListItems, LogoContainer } from "./styled.components";
 const SideNavBar = () => {
-  const { locale } = useTheme();
+  const { locale, translations } = useTheme();
   return (
     <Container>
       <LogoContainer>
@@ -21,13 +21,15 @@ const SideNavBar = () => {
       <List>
         <ListItems>
           <Link href={"/"}>
-            <DashboardSvg width="25px" height="25px" fill="#fff" /> Dashboard
+            <DashboardSvg width="25px" height="25px" fill="#fff" />{" "}
+            {translations?.dashboard}
           </Link>
         </ListItems>
         <ListItems>
           <Link href={`/${locale}/forms_details`}>
             {" "}
-            <FormsSvg width="25px" height="25px" fill="#fff" /> Forms Data
+            <FormsSvg width="25px" height="25px" fill="#fff" />
+            {translations?.formsData}
           </Link>
         </ListItems>
       </List>

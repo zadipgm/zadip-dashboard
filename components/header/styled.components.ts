@@ -48,5 +48,8 @@ align-items:center ;
 gap:6px;
 color:#fff;
 text-decoration:none ;
+> svg {
+    transform: rotate(180deg);
+}
 }
 `

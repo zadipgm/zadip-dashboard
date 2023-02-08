@@ -10,12 +10,12 @@ import {
   ProfileImageContainer,
 } from "./styled.components";
 const Header = () => {
-  const { locale } = useTheme();
+  const { locale, translations } = useTheme();
   return (
     <Container>
       <ProfileImageContainer>
         <img
-          src="/images/zeshan.jpeg"
+          src="/images/avatar.png"
           alt="profile iamge"
           width={100}
           height={"auto"}
@@ -28,7 +28,8 @@ const Header = () => {
       </ProfileImageContainer>
       <LogoutContainer>
         <Link href={`/${locale}/login`}>
-          Logout <LogoutSvg width="25px" height="25px" fill="#fff" />
+          {translations?.logout}{" "}
+          <LogoutSvg width="25px" height="25px" fill="#fff" />
         </Link>
       </LogoutContainer>
     </Container>

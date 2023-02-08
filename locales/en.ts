@@ -11,7 +11,13 @@ const english = {
   firstName: "First Name...",
   lastName: "Last Name...",
   repeatPassword: "Repeat Password",
-  register: "Register"
+  register: "Register",
+  dashboard: "Dashboard",
+  formsData: "Forms Data",
+  logout: "Logout",
+  welcometoZadip: "Welcome to Zadip Group",
+  copyRights: "© 2008 - 2023 Information Zad Group, All Rights Reserved.",
+  serviceDetails: "Requested Services Details"
 
 }
 

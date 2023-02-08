@@ -1,6 +1,8 @@
 import * as React from "react";
+import { useTheme } from "styled-components";
 import { Container } from "./styled.components";
 const Footer = () => {
-  return <Container>Copyright © Zadip Dashboard 2023</Container>;
+  const { translations } = useTheme();
+  return <Container>{translations?.copyRights}</Container>;
 };
 export default Footer;
