@@ -17,7 +17,9 @@ const english = {
   logout: "Logout",
   welcometoZadip: "Welcome to Zadip Group",
   copyRights: "© 2008 - 2023 Information Zad Group, All Rights Reserved.",
-  serviceDetails: "Requested Services Details"
+  serviceDetails: "Requested Services Details",
+  editSuccessHeading: "Success!",
+
 
 }
 

@@ -32,6 +32,13 @@ const SideNavBar = () => {
             {translations?.formsData}
           </Link>
         </ListItems>
+        <ListItems>
+          <Link href={`/${locale}/head_tag`}>
+            {" "}
+            <FormsSvg width="25px" height="25px" fill="#fff" />
+            {"Head Tag"}
+          </Link>
+        </ListItems>
       </List>
     </Container>
   );

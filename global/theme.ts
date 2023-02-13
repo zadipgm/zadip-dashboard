@@ -10,6 +10,7 @@ declare module "styled-components" {
     isLTR: boolean;
     device: "mobile" | "desktop" | "tablet";
     isRTL: boolean;
+    ShowSnackbar?: (state: boolean, message?: string, type?: string) => void;
     locale: "ar" | "en-US" | "en";
     colors: {
       themeColor: string;

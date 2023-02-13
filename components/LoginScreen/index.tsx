@@ -1,5 +1,6 @@
 import EmailSvg from "@/public/icons/emailSvg";
 import PassWordSvg from "@/public/icons/passwordSvg";
+import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import * as React from "react";
@@ -29,13 +30,20 @@ const Login = () => {
     let value = e.target.value;
     setPassword(value);
   };
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (email && password) {
-      router.push(`${locale}/`);
+    console.log("here is data", email, password);
+    try {
+      await axios.post("http://localhost:5000/login", {
+        Email: email,
+        Password: password,
+      });
+    } catch (error) {
+      console.log(error);
     }
-    setEmail("");
     setPassword("");
+    setEmail("");
+    router.push(`/${locale}/`);
   };
   return (
     <Container>

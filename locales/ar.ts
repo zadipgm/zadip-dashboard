@@ -17,7 +17,9 @@ const arabic = {
   logout: "تسجيل خروج",
   welcometoZadip: "اهلا بك في مجموعة زاد المعلومات",
   copyRights: "© 2008 - 2023 مجموعة زاد المعلومات, كل الحقوق محفوظة.",
-  serviceDetails: "تفاصيل الخدمات المطلوبة"
+  serviceDetails: "تفاصيل الخدمات المطلوبة",
+  editSuccessHeading: "نجاح!",
+
 
 
 
