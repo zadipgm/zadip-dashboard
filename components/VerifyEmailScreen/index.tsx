@@ -167,7 +167,7 @@ const VerifyEmail = () => {
                 {seconds < 10 ? `0${seconds}` : seconds}
               </p>
             ) : (
-              <p>Didn't recieve code?</p>
+              <p>Didnt recieve code?</p>
             )}
             <Button
               className={`login login-${isComplete}`}
