@@ -1,9 +1,11 @@
-import DashboardSvg from "@/public/icons/dashboard";
-import FormsSvg from "@/public/icons/formsSvg";
+import DashboardSvg from "public/icons/dashboard";
+import FormsSvg from "public/icons/formsSvg";
 import Link from "next/link";
 import * as React from "react";
 import { useTheme } from "styled-components";
 import { Container, List, ListItems, LogoContainer } from "./styled.components";
+import HomeSvg from "public/icons/homeSvg";
+import UsersSvg from "public/icons/usersSvg";
 const SideNavBar = () => {
   const { locale, translations } = useTheme();
   return (
@@ -21,15 +23,8 @@ const SideNavBar = () => {
       <List>
         <ListItems>
           <Link href={"/"}>
-            <DashboardSvg width="25px" height="25px" fill="#fff" />{" "}
+            <HomeSvg width="25px" height="25px" fill="#fff" />{" "}
             {translations?.dashboard}
-          </Link>
-        </ListItems>
-        <ListItems>
-          <Link href={`/${locale}/forms_details`}>
-            {" "}
-            <FormsSvg width="25px" height="25px" fill="#fff" />
-            {translations?.formsData}
           </Link>
         </ListItems>
         <ListItems>
@@ -37,6 +32,20 @@ const SideNavBar = () => {
             {" "}
             <FormsSvg width="25px" height="25px" fill="#fff" />
             {"Head Tag"}
+          </Link>
+        </ListItems>
+        <ListItems>
+          <Link href={`/${locale}/users`}>
+            {" "}
+            <UsersSvg width="25px" height="25px" fill="#fff" />
+            {"Create User"}
+          </Link>
+        </ListItems>
+        <ListItems>
+          <Link href={`/${locale}/all_users`}>
+            {" "}
+            <UsersSvg width="25px" height="25px" fill="#fff" />
+            {"All Users"}
           </Link>
         </ListItems>
       </List>

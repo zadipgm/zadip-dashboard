@@ -11,7 +11,17 @@ background-repeat: no-repeat;
 background-size: cover;
 background-position: center;
 `
-
+export const UserTitle = styled.h2`
+margin-top: 50px;
+text-align:center ;
+color:${({ theme }) => theme.colors.darkBlue} ;
+`
+export const ContainerUser = styled.div`
+display:flex ;
+justify-content:center ;
+align-items: center;
+margin:50px 0px;
+`
 export const ContentWrapper = styled.div`
 display:flex ;
 justify-content:center ;
@@ -21,7 +31,7 @@ width:50% ;
 margin:0 auto ;
 position:absolute ;
 top:27% ;
-    padding: 20px;
+padding: 20px;
 left: 10%;
 right:10% ;
 border-radius:20px ;
@@ -39,6 +49,10 @@ padding:15px ;
 export const Logo = styled.img`
 width:100% ;
 `
+export const EditFormTitle = styled.h2`
+color:${({ theme }) => theme.colors.darkBlue} ;
+text-align:center ;
+`
 export const Form = styled.form`
 width:50% ;
 width:50%;
@@ -53,7 +67,10 @@ width:50%;
     }
 }
 &.create-account{
-    width:70% ;
+    width:100% ;
+}
+&.otp-form{
+    width:100% ;
 }
 
 `
@@ -63,10 +80,23 @@ justify-content:center ;
 align-items:center ;
 width:50px ;
 height:50px ;
-background-color:#fff;
+background-color:#e0e0e0;
 >svg{
 
 }
+`
+export const UserSelect = styled.select`
+ color: #5c5858;
+    width: 100%;
+    padding: 15px 7px;
+    border: 1px solid lightgray;
+    font-size: 16px;
+    transition: .5s;
+    outline:none ;
+    :focus{
+        border: 1px solid #007dcbd6;
+    box-shadow: 0 0 0 0.1rem #2493f5;
+    }
 `
 export const Wrapper = styled.div`
     margin-bottom: 1rem;
@@ -76,9 +106,6 @@ export const Wrapper = styled.div`
     &.create-account{
         width:46% ;
         margin:10px ;
-        :nth-child(3){
-            width:95% ;
-        }
 
     }
     &.checkbox{
@@ -89,9 +116,23 @@ export const Wrapper = styled.div`
     }
     
 `
+export const SpinnerWrapper = styled.div`
+position: relative;
+& .MuiBox-root {
+    position: absolute;
+    top: 7px;
+    left: 55px;
+    right: 55px;
+    width:70px ;
+    display:block ;
+}
+`
+export const Link = styled.a`
+    color:${({ theme }) => theme.colors.darkBlue} ;
+`
 export const Input = styled.input`
     color: #5c5858;
-    ${({ theme }) =>
+    /* ${({ theme }) =>
         theme.isLTR
             ? css`
                 border-radius: 0px 20px 20px 0px;
@@ -99,11 +140,10 @@ export const Input = styled.input`
             : css`
                 border-radius: 20px 0px 0px 20px;
     `
-    }
+    } */
     width: 100%;
     padding: 15px 7px;
     border: 1px solid lightgray;
-   
     font-size: 16px;
     transition: .5s;
     outline:none ;
@@ -123,7 +163,7 @@ export const Input = styled.input`
     align-items: self-start;
     width: 156px;
     background-color: ${({ theme }) => theme.colors.darkBlue};
-    margin-top: 22px;
+    margin: 22px auto;
     transition: all 0.5s ease-in 0s;
     font-size: 16px;
     font-family: 'Cairo', sans-serif !important;
@@ -134,10 +174,72 @@ export const Input = styled.input`
     }
 
 }
+&.login-true{
+    filter: blur(1px);
+    color: rgb(255, 255, 255);
+    padding: 12px 9px;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    display: flex;
+    border-radius:10px ;
+    justify-content: center;
+    align-items: self-start;
+    width: 156px;
+    background-color: #74a4cf;
+    margin-top: 22px;
+    transition: all 0.5s ease-in 0s;
+    font-size: 16px;
+    font-family: 'Cairo', sans-serif !important;
+    cursor: pointer;
+}
+&.update{
+    display:block;
+}
 `
 export const Hr = styled.hr`
     margin-top: 1rem;
     margin-bottom: 1rem;
     border: 0;
     border-top: 1px solid rgba(0,0,0,.1);
+`
+export const Button = styled.button<{ disable: boolean }>`
+
+&.login{
+    color: rgb(255, 255, 255);
+    padding: 12px 9px;
+    border: none;
+    outline: none;
+    display: flex;
+    border-radius:10px ;
+    justify-content: center;
+    align-items: self-start;
+    width: 156px;
+    background-color: ${({ theme }) => theme.colors.darkBlue};
+    margin-top: 22px;
+    transition: all 0.5s ease-in 0s;
+    font-size: 16px;
+    font-family: 'Cairo', sans-serif !important;
+   cursor: ${({ disable }) => disable ? "no-drop" : "pointer"};
+   
+   
+
+}
+&.login-true{
+    filter: blur(1px);
+    color: rgb(255, 255, 255);
+    padding: 12px 9px;
+    border: none;
+    outline: none;
+    display: flex;
+    border-radius:10px ;
+    justify-content: center;
+    align-items: self-start;
+    width: 156px;
+    background-color: #74a4cf;
+    margin-top: 22px;
+    transition: all 0.5s ease-in 0s;
+    font-size: 16px;
+    font-family: 'Cairo', sans-serif !important;
+}
 `

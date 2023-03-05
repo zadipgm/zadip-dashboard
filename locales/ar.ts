@@ -12,6 +12,7 @@ const arabic = {
   lastName: "...اسم العائلة",
   repeatPassword: "اعد كلمة السر",
   register: "يسجل",
+  update: "تحديث",
   dashboard: "لوحة القيادة",
   formsData: "بيانات النماذج",
   logout: "تسجيل خروج",
@@ -19,6 +20,7 @@ const arabic = {
   copyRights: "© 2008 - 2023 مجموعة زاد المعلومات, كل الحقوق محفوظة.",
   serviceDetails: "تفاصيل الخدمات المطلوبة",
   editSuccessHeading: "نجاح!",
+  verify: "تحقق ",
 
 
 

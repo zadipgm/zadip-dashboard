@@ -16,7 +16,7 @@ const FormsDetails = () => {
 
   React.useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:5000/getllAll")
+    fetch("https://api.zadip.sa/get_zadipform")
       .then((res) => res.json())
       .then((data) => {
         setData(data);

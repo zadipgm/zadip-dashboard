@@ -1,4 +1,4 @@
-import EmailSvg from "@/public/icons/emailSvg";
+import EmailSvg from "public/icons/emailSvg";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import * as React from "react";
@@ -57,10 +57,6 @@ const ForgotPassWord = () => {
           </Wrapper>
           <Input type="submit" className="login" value={translations?.login} />
           <Hr></Hr>
-
-          <Link href={`/${locale}/create_account`}>
-            {translations?.createanAccount}
-          </Link>
           <br></br>
           <Link href={`/${locale}/login`}>
             {translations?.alreadyhaveaccount}

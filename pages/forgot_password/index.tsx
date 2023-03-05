@@ -1,5 +1,5 @@
 import * as React from "react";
-import ForgotPassWord from "@/components/FogotPasswordScreen";
+import ForgotPassWord from "components/FogotPasswordScreen";
 const ForgotPasswordPage = () => {
   return <ForgotPassWord />;
 };

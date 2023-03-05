@@ -8,6 +8,7 @@ declare module "styled-components" {
     | typeof import("../locales/en").default;
     direction: "rtl" | "ltr";
     isLTR: boolean;
+    user_email: string,
     device: "mobile" | "desktop" | "tablet";
     isRTL: boolean;
     ShowSnackbar?: (state: boolean, message?: string, type?: string) => void;
@@ -32,6 +33,7 @@ const defaultTheme: DefaultTheme = {
   device: "mobile",
   isLTR: false,
   isRTL: true,
+  user_email: "",
   colors: {
     themeColor: "linear-gradient(-49deg,#09589d 22%, #56ceff);",
     lightThemeColor: "linear-gradient(-49deg,#09589d29 22%,#56ceff33);",

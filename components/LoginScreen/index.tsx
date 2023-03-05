@@ -1,11 +1,13 @@
-import EmailSvg from "@/public/icons/emailSvg";
-import PassWordSvg from "@/public/icons/passwordSvg";
+import EmailSvg from "public/icons/emailSvg";
+import PassWordSvg from "public/icons/passwordSvg";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import * as React from "react";
 import { useTheme } from "styled-components";
-import ButtonComponent from "../ReuseableComponents/Button";
+import Cookies from "js-cookie";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 import {
   Container,
   Wrapper,
@@ -16,85 +18,143 @@ import {
   ContentWrapper,
   Hr,
   SvgWrapper,
+  SpinnerWrapper,
 } from "./styled.components";
+import SimpleSnackbar from "components/Snackbar copy";
 const Login = () => {
   const router = useRouter();
-  const { locale, colors, translations } = useTheme();
+  const { locale, colors, translations, isLTR } = useTheme();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [message, setMessage] = React.useState("");
+  const [color, setColor] = React.useState("");
+  const [isComplete, setIsComplete] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value;
     setEmail(value);
   };
+
   const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value;
     setPassword(value);
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("here is data", email, password);
     try {
-      await axios.post("http://localhost:5000/login", {
-        Email: email,
-        Password: password,
-      });
+      await axios
+        .post("https://api.zadip.sa/login", {
+          Email: email,
+          Password: password,
+        })
+        .then((res) => Cookies.set("isLogedIn", res.data.isLogin));
+      setEmail("");
+      setPassword("");
+      handleClick();
+      setMessage(
+        isLTR ? "User LoggedIn successfully!" : "تم تسجيل المستخدم بنجاح!"
+      );
+      setIsComplete(true);
+      setTimeout(function () {
+        setIsComplete(false);
+        router.push(`/`);
+      }, 3000);
+      setColor("#2e7d32");
     } catch (error) {
+      handleClick();
+      setIsComplete(true);
+      setTimeout(function () {
+        setIsComplete(false);
+      }, 3000);
+      setColor("#d32f2f");
       console.log(error);
+      setMessage(
+        isLTR
+          ? error.response?.data?.message_en
+          : error.response?.data?.message_ar
+      );
     }
-    setPassword("");
-    setEmail("");
-    router.push(`/${locale}/`);
   };
   return (
-    <Container>
-      <ContentWrapper>
-        <LogoWrapper>
-          <Logo
-            src="/images/zadiplogo.png"
-            alt="logo"
-            width={200}
-            height={"100%"}
-          />
-        </LogoWrapper>
-        <Form onSubmit={(e) => handleSubmit(e)}>
-          <Wrapper>
-            <SvgWrapper>
-              <EmailSvg width="25px" height="25px" fill={colors.lightBlue} />
-            </SvgWrapper>
-            <Input
-              type="email"
-              placeholder={translations?.enterEmail}
-              required
-              onChange={(e) => handleEmail(e)}
+    <>
+      <SimpleSnackbar
+        open={open}
+        handleClose={handleClose}
+        message={message}
+        color={color}
+      />
+      <Container>
+        <ContentWrapper>
+          <LogoWrapper>
+            <Logo
+              src="/images/zadiplogo.png"
+              alt="logo"
+              width={200}
+              height={"100%"}
             />
-          </Wrapper>
-          <Wrapper>
-            <SvgWrapper>
-              <PassWordSvg width="25px" height="25px" fill={colors.lightBlue} />
-            </SvgWrapper>
-            <Input
-              type="text"
-              placeholder={translations?.password}
-              required
-              onChange={(e) => handlePassword(e)}
-            />
-          </Wrapper>
-          <Wrapper className="checkbox">
+          </LogoWrapper>
+          <Form onSubmit={(e) => handleSubmit(e)}>
+            <Wrapper>
+              <SvgWrapper>
+                <EmailSvg width="25px" height="25px" fill={colors.lightBlue} />
+              </SvgWrapper>
+              <Input
+                type="email"
+                placeholder={translations?.enterEmail}
+                required
+                onChange={(e) => handleEmail(e)}
+              />
+            </Wrapper>
+            <Wrapper>
+              <SvgWrapper>
+                <PassWordSvg
+                  width="25px"
+                  height="25px"
+                  fill={colors.lightBlue}
+                />
+              </SvgWrapper>
+              <Input
+                type="text"
+                placeholder={translations?.password}
+                required
+                onChange={(e) => handlePassword(e)}
+              />
+            </Wrapper>
+            {/* <Wrapper className="checkbox">
             <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
             <label> {translations?.rememberMe}</label>
-          </Wrapper>
-          <Input type="submit" className="login" value={translations?.login} />
-          <Hr></Hr>
-          <Link href={`/${locale}/forgot_password`}>
-            {translations?.forgotpassword}
-          </Link>
-          <br></br>
-          <Link href={`/${locale}/create_account`}>
-            {translations?.createanAccount}
-          </Link>
-        </Form>
-      </ContentWrapper>
-    </Container>
+          </Wrapper> */}
+
+            <SpinnerWrapper>
+              <Input
+                type="submit"
+                className={`login login-${isComplete}`}
+                value={translations?.login}
+              />
+              {isComplete && (
+                <Box>
+                  <CircularProgress />
+                </Box>
+              )}
+            </SpinnerWrapper>
+            <Hr></Hr>
+            <Link href={`/${locale}/forgot_password`}>
+              {translations?.forgotpassword}
+            </Link>
+            <br></br>
+          </Form>
+        </ContentWrapper>
+      </Container>
+    </>
   );
 };
 export default Login;

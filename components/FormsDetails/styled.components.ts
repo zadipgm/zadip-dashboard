@@ -14,6 +14,11 @@ export const Table = styled.table`
   border: 1px solid #ddd;
   width: 100%;
 `
+export const IconsWrapper = styled.div`
+display:inline-block ;
+margin:8px ;
+cursor: pointer;
+`
 export const TableBody = styled.tbody``
 export const TableRow = styled.tr`
 :nth-child(even){

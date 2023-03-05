@@ -1,4 +1,4 @@
-import Login from "@/components/LoginScreen";
+import Login from "components/LoginScreen";
 import * as React from "react";
 const LoginPage = () => {
   return <Login />;

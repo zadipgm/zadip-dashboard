@@ -6,6 +6,9 @@ import type { AppContext, AppProps } from "next/app";
 import Head from "next/head";
 import theme from "../global/theme";
 import { ThemeProvider } from "styled-components";
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
+
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
@@ -24,6 +27,7 @@ const MyApp = ({
   translations,
   locale,
 }: AppPropsWithLayout) => {
+  const router = useRouter();
   const getLayout = Component.getLayout ?? ((page) => page);
   // @ts-ignore
   theme.translations = translations;
@@ -42,6 +46,18 @@ const MyApp = ({
     }
   }, []);
 
+  React.useEffect(() => {
+    let cookies = Cookies.get("isLogedIn");
+    if (router.pathname === "/login") {
+      if (cookies === "true") {
+        router.push("/");
+      }
+    } else if (router.pathname.startsWith("/")) {
+      if (cookies !== "true") {
+        router.push("/login");
+      }
+    }
+  }, []);
   return getLayout(
     <>
       <Head>

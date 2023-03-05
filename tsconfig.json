@@ -1,24 +1,49 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "downlevelIteration": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "shared/lib/router/router": ["global/r.ts"],
+      "GTMs/*": ["GTMs/*"],
+      "componentLayout/*": ["componentLayout/*"],
+      "components/*": ["components/*"],
+      "componentScreens/*": ["componentScreens/*"],
+      "contexts/*": ["contexts/*"],
+      "apis/*": ["apis/*"],
+      "globals/*": ["global/*"],
+      "locales/*": ["locales/*"],
+      "pages/*": ["pages/*"],
+      "public/*": ["public/*"],
+      "styles/*": ["styles/*"],
+      "utils/*": ["utils/*"],
+      "models/*": ["models/*"],
+      "routes/*": ["routes/*"],
+      "assets/*": ["assets/*"],
+      "helpers/*": ["helpers/*"],
+      "dataLayer/*": ["dataLayer/*"],
+      "componentPages/*": ["componentPages/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "components/ChipsListCustom",
+    "components/ChipsListCustom"
+, "pages/api/hello.js"  ],
   "exclude": ["node_modules"]
 }

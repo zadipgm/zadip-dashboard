@@ -16,7 +16,7 @@ align-items:center ;
 flex-wrap:wrap ;
 `
 export const Wrapper = styled.div`
-width:45% ;
+width:70% ;
 margin:12px ;
 `
 export const Label = styled.label`
@@ -24,6 +24,7 @@ font-size:16px ;
 color:gray ;
 margin:12px ;
 font-family: 'Cairo', sans-serif !important;
+
 `
 export const Input = styled.input`
 width:100% ;
@@ -37,12 +38,24 @@ font-family: 'Cairo', sans-serif !important;
 border: 1px solid ${({ theme }) => theme.colors.lightBlue} ;
 }
 `
+export const Select = styled.select`
+width: 100%;
+font-size: 16px;
+padding: 10px 8px;
+outline: none;
+color:gray ;
+border-radius: 6px;
+border: 1px solid gray;
+font-family: 'Cairo',sans-serif !important;
+cursor: pointer;
+`
 export const TextArea = styled.textarea`
 width:100% ;
 font-size:16px ;
 padding:10px 8px ;
 outline:none ;
 border-radius:6px;
+color:gray ;
 border:1px solid gray ;
 font-family: 'Cairo', sans-serif !important;
 :focus{

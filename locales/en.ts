@@ -12,6 +12,7 @@ const english = {
   lastName: "Last Name...",
   repeatPassword: "Repeat Password",
   register: "Register",
+  update: "Update",
   dashboard: "Dashboard",
   formsData: "Forms Data",
   logout: "Logout",
@@ -19,6 +20,7 @@ const english = {
   copyRights: "© 2008 - 2023 Information Zad Group, All Rights Reserved.",
   serviceDetails: "Requested Services Details",
   editSuccessHeading: "Success!",
+  verify: "Verify"
 
 
 }

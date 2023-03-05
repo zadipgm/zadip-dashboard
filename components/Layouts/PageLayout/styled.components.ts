@@ -10,3 +10,6 @@ flex-direction:column ;
     width: 100%;
     overflow-x: hidden;
 `
+export const Children = styled.div`
+min-height:100vh ;
+`
