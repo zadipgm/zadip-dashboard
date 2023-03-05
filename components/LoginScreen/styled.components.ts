@@ -105,7 +105,9 @@ export const Wrapper = styled.div`
     align-items: center;
     &.create-account{
         width:46% ;
-        margin:10px ;
+        padding:20px ;
+        margin:40px 17px;
+       
 
     }
     &.checkbox{

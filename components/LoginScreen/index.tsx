@@ -123,7 +123,7 @@ const Login = () => {
                 />
               </SvgWrapper>
               <Input
-                type="text"
+                type="password"
                 placeholder={translations?.password}
                 required
                 onChange={(e) => handlePassword(e)}
