@@ -7,7 +7,7 @@ margin:30px 0px ;
 color:${({ theme }) => theme.colors.lightBlue} ;
 `
 export const Form = styled.form`
-    background: #000000cf;
+     background-color:#1212121f;
     padding: 20px;
     margin:0px 50px ;
     border-radius:20px ;

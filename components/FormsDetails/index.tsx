@@ -28,10 +28,9 @@ const FormsDetails = () => {
     return (
       data &&
       data?.map((item, index) => {
-        const { ID, Name, MobileNumber, Email, ServiceName, Page } = item; //destructuring
+        const { Name, MobileNumber, Email, ServiceName, Page } = item; //destructuring
         return (
-          <TableRow key={ID}>
-            <TableData>{ID}</TableData>
+          <TableRow key={index}>
             <TableData>{Name}</TableData>
             <TableData>{MobileNumber}</TableData>
             <TableData>{Email}</TableData>
@@ -45,7 +44,6 @@ const FormsDetails = () => {
   const renderTableHeader = () => {
     return (
       <>
-        <TableHead>ID</TableHead>
         <TableHead>NAME</TableHead>
         <TableHead>PHONE</TableHead>
         <TableHead>EMAIL</TableHead>

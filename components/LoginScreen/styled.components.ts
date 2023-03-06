@@ -106,7 +106,7 @@ export const Wrapper = styled.div`
     &.create-account{
         width:46% ;
         padding:20px ;
-        margin:40px 17px;
+        margin: 17px;
        
 
     }
