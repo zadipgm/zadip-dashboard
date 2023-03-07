@@ -50,9 +50,13 @@ const Login = () => {
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    let APP_URL =
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:5000"
+        : "https://api.zadip.sa";
     try {
       await axios
-        .post("https://api.zadip.sa/login", {
+        .post(`${APP_URL}/login`, {
           Email: email,
           Password: password,
         })

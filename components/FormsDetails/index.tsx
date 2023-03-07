@@ -16,7 +16,11 @@ const FormsDetails = () => {
 
   React.useEffect(() => {
     setLoading(true);
-    fetch("https://api.zadip.sa/get_zadipform")
+    let APP_URL =
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:5000"
+        : "https://api.zadip.sa";
+    fetch(`${APP_URL}/get_zadipform`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);

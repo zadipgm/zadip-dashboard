@@ -5,8 +5,6 @@ import { useTheme } from "styled-components";
 import Cookies from "js-cookie";
 import {
   Container,
-  List,
-  ListItems,
   LogoutContainer,
   ProfileImageContainer,
 } from "./styled.components";
@@ -16,8 +14,12 @@ const Header = () => {
   const router = useRouter();
   const { locale, translations } = useTheme();
   const handleLogout = async () => {
+    let APP_URL =
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:5000"
+        : "https://api.zadip.sa";
     try {
-      await axios.delete("https://api.zadip.sa/logout");
+      await axios.delete(`${APP_URL}/logout`);
       router.push(`/${locale}/login`);
       Cookies.remove("isLogedIn");
       window.location.reload();
@@ -37,10 +39,6 @@ const Header = () => {
           height={"auto"}
         />{" "}
         <span>zeshan</span>
-        {/* <List>
-          <ListItems>Profile</ListItems>
-          <ListItems>Setting</ListItems>
-        </List> */}
       </ProfileImageContainer>
       <LogoutContainer onClick={handleLogout}>
         <Link href={``}>

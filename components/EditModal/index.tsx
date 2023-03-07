@@ -59,8 +59,12 @@ const EditModal = ({ open, close, user, id }: IProps) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    let APP_URL =
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:5000"
+        : "https://api.zadip.sa";
     try {
-      await axios.put(`https://api.zadip.sa/update${id}`, {
+      await axios.put(`${APP_URL}/update${id}`, {
         First_Name: firstName === "" ? user?.First_Name : firstName,
         Last_Name: lastName === "" ? user?.Last_Name : lastName,
         Email: email === "" ? user?.Email : email,

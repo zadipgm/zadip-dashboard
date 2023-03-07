@@ -22,8 +22,6 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 import { FormContent } from "./styled.components";
 import SimpleSnackbar from "components/Snackbar copy";
-import { Email_sent } from "hooks/email_sent";
-import { Otp_Generated } from "hooks/otp_generated";
 import UsersSvg from "public/icons/usersSvg";
 
 const CreateAccountScreen = () => {
@@ -79,8 +77,12 @@ const CreateAccountScreen = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    let APP_URL =
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:5000"
+        : "https://api.zadip.sa";
     try {
-      await axios.post("https://api.zadip.sa/register", {
+      await axios.post(`${APP_URL}/register`, {
         First_Name: firstName,
         Last_Name: lastName,
         Email: email,

@@ -24,8 +24,12 @@ const HeadTagComponent = () => {
   const [pageName, setPageName] = React.useState("home");
   const handelSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    let APP_URL =
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:5000"
+        : "https://api.zadip.sa";
     try {
-      await axios.post("https://api.zadip.sa/set_head", {
+      await axios.post(`${APP_URL}/set_head`, {
         Page_Title: pageTitle,
         Meta_Name: metaName,
         Meta_Description: metaDescription,

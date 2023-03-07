@@ -22,6 +22,10 @@ const AllUsersScreen = () => {
   const handleClose = () => setOpen(false);
   const [editUser, setEditUser] = React.useState();
   const [userID, setUserID] = React.useState(0);
+  let APP_URL =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:5000"
+      : "https://api.zadip.sa";
   React.useEffect(() => {
     getUsers();
   }, []);
@@ -29,7 +33,7 @@ const AllUsersScreen = () => {
   const getUsers = React.useCallback(async () => {
     try {
       await axios
-        .get("https://api.zadip.sa/users")
+        .get(`${APP_URL}/users`)
         .then((response) => setUsers(response.data));
     } catch (err) {
       console.log(err);
@@ -39,7 +43,7 @@ const AllUsersScreen = () => {
   const hanldeDelet = async (id: any) => {
     console.log("here is delet", id);
     try {
-      await axios.delete(`https://api.zadip.sa/delete/${id}`);
+      await axios.delete(`${APP_URL}/delete/${id}`);
       setUsers((prev) => prev.filter((user) => user.id !== id));
     } catch (err) {
       console.log(err);
@@ -49,7 +53,7 @@ const AllUsersScreen = () => {
     async (id: number) => {
       try {
         await axios
-          .get(`https://api.zadip.sa/edit/${id}`)
+          .get(`${APP_URL}/edit/${id}`)
           .then((res) => setEditUser(res.data));
         setOpen(true);
         setUserID(id);
