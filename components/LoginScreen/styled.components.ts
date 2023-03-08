@@ -69,6 +69,9 @@ width:50%;
 &.create-account{
     width:100% ;
 }
+&.edit-account{
+    width:100% ;
+}
 &.otp-form{
     width:100% ;
 }
@@ -110,6 +113,12 @@ export const Wrapper = styled.div`
        
 
     }
+    &.edit-account{
+        width:100% ;
+        padding:20px ;
+       
+
+    }
     &.checkbox{
         > label{
             color:#fff ;
@@ -120,6 +129,10 @@ export const Wrapper = styled.div`
 `
 export const SpinnerWrapper = styled.div`
 position: relative;
+&.edit{
+    width: 250px;
+    margin: 0 auto;
+}
 & .MuiBox-root {
     position: absolute;
     top: 7px;

@@ -23,8 +23,9 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: "50%",
   bgcolor: "background.paper",
-  border: "2px solid #000",
+  borderRadius: "20px",
   boxShadow: 24,
+  border: "none",
   p: 4,
 };
 interface User {
@@ -115,9 +116,9 @@ const EditModal = ({ open, close, user, id }: IProps) => {
       >
         <Box sx={style}>
           <EditFormTitle>Edit User Information</EditFormTitle>
-          <Form onSubmit={(e) => handleSubmit(e)} className={"create-account"}>
+          <Form onSubmit={(e) => handleSubmit(e)} className={"edit-account"}>
             <FormContent>
-              <Wrapper className={"create-account"}>
+              <Wrapper className={"edit-account"}>
                 <SvgWrapper>
                   <NameSvg width="25px" height="25px" fill={colors.lightBlue} />
                 </SvgWrapper>
@@ -130,7 +131,7 @@ const EditModal = ({ open, close, user, id }: IProps) => {
                   minLength={2}
                 />
               </Wrapper>
-              <Wrapper className={"create-account"}>
+              <Wrapper className={"edit-account"}>
                 <SvgWrapper>
                   <NameSvg width="25px" height="25px" fill={colors.lightBlue} />
                 </SvgWrapper>
@@ -143,7 +144,7 @@ const EditModal = ({ open, close, user, id }: IProps) => {
                   onChange={(e) => setLastName(e.target.value)}
                 />
               </Wrapper>
-              <Wrapper className={"create-account"}>
+              <Wrapper className={"edit-account"}>
                 <SvgWrapper>
                   <EmailSvg
                     width="25px"
@@ -159,7 +160,7 @@ const EditModal = ({ open, close, user, id }: IProps) => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </Wrapper>
-              <SpinnerWrapper>
+              <SpinnerWrapper className="edit">
                 <Input
                   type="submit"
                   className={`login login-${isComplete} update`}

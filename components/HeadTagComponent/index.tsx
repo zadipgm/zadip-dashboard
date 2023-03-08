@@ -136,11 +136,11 @@ const HeadTagComponent = () => {
             >
               <option value="home">Home</option>
               <option value="muaref">Muaref</option>
-              <option value="professional services">
+              <option value="professional_services">
                 Professional Services
               </option>
-              <option value="client partners">Client & Partners</option>
-              <option value="about us">About Us</option>
+              <option value="client_partners">Client & Partners</option>
+              <option value="about_us">About Us</option>
               <option value="recruitment">Recruitment</option>
               <option value="tam">Tam</option>
               <option value="muqeem">Muqeem</option>
