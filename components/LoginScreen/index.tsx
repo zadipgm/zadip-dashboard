@@ -19,8 +19,11 @@ import {
   Hr,
   SvgWrapper,
   SpinnerWrapper,
+  EyesWrapper,
 } from "./styled.components";
 import SimpleSnackbar from "components/Snackbar copy";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 const Login = () => {
   const router = useRouter();
   const { locale, colors, translations, isLTR } = useTheme();
@@ -30,11 +33,14 @@ const Login = () => {
   const [color, setColor] = React.useState("");
   const [isComplete, setIsComplete] = React.useState(false);
   const [open, setOpen] = React.useState(false);
+  const [passwordShown, setPasswordShown] = React.useState(false);
 
   const handleClick = () => {
     setOpen(true);
   };
-
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
   const handleClose = () => {
     setOpen(false);
   };
@@ -118,7 +124,7 @@ const Login = () => {
                 onChange={(e) => handleEmail(e)}
               />
             </Wrapper>
-            <Wrapper>
+            <Wrapper className="password">
               <SvgWrapper>
                 <PassWordSvg
                   width="25px"
@@ -127,11 +133,18 @@ const Login = () => {
                 />
               </SvgWrapper>
               <Input
-                type="password"
+                type={passwordShown ? "text" : "password"}
                 placeholder={translations?.password}
                 required
                 onChange={(e) => handlePassword(e)}
               />
+              <EyesWrapper onClick={togglePassword}>
+                {passwordShown ? (
+                  <VisibilityOutlinedIcon color={"primary"} />
+                ) : (
+                  <VisibilityOffOutlinedIcon color={"primary"} />
+                )}
+              </EyesWrapper>
             </Wrapper>
             {/* <Wrapper className="checkbox">
             <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />

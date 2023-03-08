@@ -110,14 +110,13 @@ export const Wrapper = styled.div`
         width:46% ;
         padding:20px ;
         margin: 17px;
-       
-
     }
     &.edit-account{
         width:100% ;
-        padding:20px ;
-       
-
+        padding:20px 
+    }
+    &.password{
+    position: relative;
     }
     &.checkbox{
         > label{
@@ -144,6 +143,23 @@ position: relative;
 `
 export const Link = styled.a`
     color:${({ theme }) => theme.colors.darkBlue} ;
+`
+export const EyesWrapper = styled.div`
+position: absolute;
+    cursor: pointer;
+    top: 15px;
+    ${({ theme }) =>
+        theme.isLTR
+            ? css`
+                right: 8px;
+                `
+            : css`
+                left: 8px;
+               `
+    }
+    &.MuiIcon-fontSizeLarge{
+        font-size: 50px;
+    }
 `
 export const Input = styled.input`
     color: #5c5858;
