@@ -13,11 +13,12 @@ import { useRouter } from "next/router";
 const Header = () => {
   const router = useRouter();
   const { locale, translations } = useTheme();
+  const [users, setUsers] = React.useState([]);
+  let APP_URL =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:5000"
+      : "https://api.zadip.sa";
   const handleLogout = async () => {
-    let APP_URL =
-      process.env.NODE_ENV === "development"
-        ? "http://localhost:5000"
-        : "https://api.zadip.sa";
     try {
       await axios.delete(`${APP_URL}/logout`);
       router.push(`/${locale}/login`);
@@ -29,6 +30,22 @@ const Header = () => {
       }
     }
   };
+  const getUsers = React.useCallback(async () => {
+    try {
+      await axios
+        .get(`${APP_URL}/users`)
+        .then((response) => setUsers(response.data));
+    } catch (err) {
+      console.log(err);
+    }
+  }, [users]);
+  React.useEffect(() => {
+    getUsers();
+  }, []);
+
+  let userFilter =
+    users && users.filter((user) => user.Email === Cookies.get("email"));
+  console.log(userFilter);
   return (
     <Container>
       <ProfileImageContainer>
@@ -38,7 +55,7 @@ const Header = () => {
           width={100}
           height={"auto"}
         />{" "}
-        <span>zeshan</span>
+        <span>{userFilter && userFilter[0]?.First_Name}</span>
       </ProfileImageContainer>
       <LogoutContainer onClick={handleLogout}>
         <Link href={``}>

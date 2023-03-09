@@ -66,7 +66,11 @@ const Login = () => {
           Email: email,
           Password: password,
         })
-        .then((res) => Cookies.set("isLogedIn", res.data.isLogin));
+        .then(
+          (res) =>
+            Cookies.set("isLogedIn", res.data.isLogin) &&
+            Cookies.set("email", res.data.email)
+        );
       setEmail("");
       setPassword("");
       handleClick();

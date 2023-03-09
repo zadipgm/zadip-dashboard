@@ -27,7 +27,7 @@ const FormsDetails = () => {
         setLoading(false);
       });
   }, []);
-  console.log("here is data", data);
+
   const renderTableData = () => {
     return (
       data &&
