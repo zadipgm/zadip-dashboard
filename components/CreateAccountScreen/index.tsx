@@ -21,7 +21,7 @@ import {
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 import { FormContent } from "./styled.components";
-import SimpleSnackbar from "components/Snackbar copy";
+import SimpleSnackbar from "components/Snackbar";
 import UsersSvg from "public/icons/usersSvg";
 
 const CreateAccountScreen = () => {
@@ -103,7 +103,7 @@ const CreateAccountScreen = () => {
       setTimeout(function () {
         setIsComplete(false);
       }, 5000);
-      setColor("#2e7d32");
+      setColor("success");
     } catch (error) {
       if (error) {
         handleClick();
@@ -111,7 +111,7 @@ const CreateAccountScreen = () => {
         setTimeout(function () {
           setIsComplete(false);
         }, 5000);
-        setColor("#d32f2f");
+        setColor("error");
         console.log(error);
         setMessage(
           isLTR

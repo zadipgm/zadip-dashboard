@@ -2,6 +2,7 @@ const english = {
   forgotpassword: "Forgot Password?",
   createanAccount: "Create an Account!",
   login: "LogIn",
+  send: "Send",
   rememberMe: "Remember Me",
   password: "Password",
   enterEmail: "Enter Email Address...",
@@ -20,7 +21,9 @@ const english = {
   copyRights: "© 2008 - 2023 Information Zad Group, All Rights Reserved.",
   serviceDetails: "Requested Services Details",
   editSuccessHeading: "Success!",
-  verify: "Verify"
+  verify: "Verify",
+  resetPassWord: "Reset Password",
+  newPassWord: "Enter your new password"
 
 
 }
