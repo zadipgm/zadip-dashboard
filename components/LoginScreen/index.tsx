@@ -21,7 +21,7 @@ import {
   SpinnerWrapper,
   EyesWrapper,
 } from "./styled.components";
-import SimpleSnackbar from "components/Snackbar copy";
+import SimpleSnackbar from "components/Snackbar";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 const Login = () => {
@@ -82,14 +82,14 @@ const Login = () => {
         setIsComplete(false);
         router.push(`/`);
       }, 3000);
-      setColor("#2e7d32");
+      setColor("success");
     } catch (error) {
       handleClick();
       setIsComplete(true);
       setTimeout(function () {
         setIsComplete(false);
       }, 3000);
-      setColor("#d32f2f");
+      setColor("error");
       console.log(error);
       setMessage(
         isLTR

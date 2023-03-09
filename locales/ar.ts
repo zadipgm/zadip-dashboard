@@ -2,6 +2,7 @@ const arabic = {
   forgotpassword: "هل نسيت كلمة السر؟",
   createanAccount: "إنشاء حساب!",
   login: "تسجيل الدخول",
+  send: "إرسال",
   rememberMe: "تذكرنى",
   password: "كلمة المرور",
   enterEmail: "أدخل عنوان البريد الالكتروني...",
@@ -21,6 +22,8 @@ const arabic = {
   serviceDetails: "تفاصيل الخدمات المطلوبة",
   editSuccessHeading: "نجاح!",
   verify: "تحقق ",
+  resetPassWord: "إعادة تعيين كلمة المرور",
+  newPassWord: "أدخل كلمة المرور الجديدة",
 
 
 

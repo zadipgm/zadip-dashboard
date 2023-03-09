@@ -14,7 +14,7 @@ import NameSvg from "public/icons/nameSvg";
 import CircularProgress from "@mui/material/CircularProgress";
 import { FormContent } from "components/CreateAccountScreen/styled.components";
 import { useTheme } from "styled-components";
-import SimpleSnackbar from "components/Snackbar copy";
+import SimpleSnackbar from "components/Snackbar";
 import axios from "axios";
 const style = {
   position: "absolute" as "absolute",
@@ -82,14 +82,14 @@ const EditModal = ({ open, close, user, id }: IProps) => {
         setIsComplete(false);
         close();
       }, 5000);
-      setColor("#2e7d32");
+      setColor("success");
     } catch (error) {
       if (error) {
         setIsComplete(true);
         setTimeout(function () {
           setIsComplete(false);
         }, 5000);
-        setColor("#d32f2f");
+        setColor("error");
         handleClick();
         console.log(error);
         setMessage(
