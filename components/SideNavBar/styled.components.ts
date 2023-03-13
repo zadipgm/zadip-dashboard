@@ -19,22 +19,14 @@ export const List = styled.ul`
 
 `
 export const LangButton = styled.a`
-text-decoration:none ;
-display: inline-block;
-padding: .75rem 1.15rem;
-border-radius: 10px;
-color: #fff;
-text-transform: uppercase;
-font-size: 16px;
-transition: all .6s;
-z-index: 1;
-transition:.5s ;
-cursor: pointer;
-border:none ;
-:hover{
-background-color:#6fc5e8;
-transition:.6s;
-}
+
+    display:flex ;
+    justify-content:flex-start ;
+    align-items:center ;
+    gap:6px;
+    width:100% ;
+    color:#fff;
+    text-decoration:none ;
 &.mobile-lang {
   padding: 6px 12px;
     background: #fff;

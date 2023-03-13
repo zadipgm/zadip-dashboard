@@ -24,6 +24,9 @@ const arabic = {
   verify: "تحقق ",
   resetPassWord: "إعادة تعيين كلمة المرور",
   newPassWord: "أدخل كلمة المرور الجديدة",
+  userRequestedServices: "طلب المستخدم الخدمات",
+  userVisitedPage: "الصفحة الأكثر زيارة",
+  welcomeNote: "اهلا بك"
 
 
 

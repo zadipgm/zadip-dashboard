@@ -1,6 +1,8 @@
+import Charts from "components/pieChart";
 import * as React from "react";
 import { useTheme } from "styled-components";
 import {
+  Button,
   Container,
   Table,
   TableBody,
@@ -13,6 +15,8 @@ const FormsDetails = () => {
   const { translations } = useTheme();
   const [data, setData] = React.useState([]);
   const [isLoading, setLoading] = React.useState(false);
+  let showdata = 10;
+  const [show, setShow] = React.useState(showdata);
 
   React.useEffect(() => {
     setLoading(true);
@@ -31,7 +35,7 @@ const FormsDetails = () => {
   const renderTableData = () => {
     return (
       data &&
-      data?.map((item, index) => {
+      data?.slice(0, show)?.map((item, index) => {
         const { Name, MobileNumber, Email, ServiceName, Page } = item; //destructuring
         return (
           <TableRow key={index}>
@@ -56,8 +60,30 @@ const FormsDetails = () => {
       </>
     );
   };
+
+  const serviceCounts = {} as any;
+  data.forEach((service) => {
+    serviceCounts[service.ServiceName] =
+      (serviceCounts[service.ServiceName] || 0) + 1;
+  });
+
+  const pageCounts = {} as any;
+  data.forEach((service) => {
+    pageCounts[service.Page] = (pageCounts[service.Page] || 0) + 1;
+  });
+
+  const ShowMore = () => {
+    setShow(show + 10);
+  };
+
   return (
     <Container>
+      <Charts
+        title={translations.userRequestedServices}
+        serviceCounts={serviceCounts}
+        pageCounts={pageCounts}
+      />
+
       <Title>{translations?.serviceDetails}</Title>
       <Table id="Services" className="Services">
         <TableBody>
@@ -65,6 +91,7 @@ const FormsDetails = () => {
           {renderTableData()}
         </TableBody>
       </Table>
+      {data.length <= show ? "" : <Button onClick={ShowMore}>Show More</Button>}
     </Container>
   );
 };
