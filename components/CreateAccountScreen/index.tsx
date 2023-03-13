@@ -5,7 +5,6 @@ import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import * as React from "react";
-import "react-toastify/dist/ReactToastify.css";
 import { useTheme } from "styled-components";
 import Cookies from "js-cookie";
 import {

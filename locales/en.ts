@@ -23,7 +23,11 @@ const english = {
   editSuccessHeading: "Success!",
   verify: "Verify",
   resetPassWord: "Reset Password",
-  newPassWord: "Enter your new password"
+  newPassWord: "Enter your new password",
+  userRequestedServices: "User Requested Services",
+  userVisitedPage: "Most Visited Page",
+  welcomeNote: "Welcome"
+
 
 
 }

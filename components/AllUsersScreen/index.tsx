@@ -1,6 +1,5 @@
 import axios from "axios";
 import EditModal from "components/EditModal";
-import { useRouter } from "next/router";
 import DeleteSvg from "public/icons/deleteSvg";
 import EditSvg from "public/icons/editSvg";
 import * as React from "react";

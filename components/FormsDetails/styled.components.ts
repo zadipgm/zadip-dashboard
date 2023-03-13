@@ -19,6 +19,23 @@ display:inline-block ;
 margin:8px ;
 cursor: pointer;
 `
+export const Button = styled.button`
+
+background-color:${({ theme }) => theme.colors.lightBlue};
+    text-align: center;
+    padding: 15px;
+    width: 250px;
+    margin: 12px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+`
 export const TableBody = styled.tbody``
 export const TableRow = styled.tr`
 :nth-child(even){
